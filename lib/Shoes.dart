@@ -1,3 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 class Shoes{
-  String _title;
+  String title;
+  List<Color> colors;
+
+  Shoes({this.title,this.colors});
 }

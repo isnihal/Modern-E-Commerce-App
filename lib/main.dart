@@ -1,5 +1,6 @@
 import 'package:ecommerce_template/utils/profile_clipper.dart';
 import 'package:ecommerce_template/widgets/brand_selector.dart';
+import 'package:ecommerce_template/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +28,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  List<Shoes> products = [];
+  List<Shoes> products = [
+    Shoes(colors: [Colors.red[100],Colors.red]),
+    Shoes(colors: [Colors.green[100],Colors.green]),
+    Shoes(colors: [Colors.blue[100],Colors.blue]),
+    Shoes(colors: [Colors.purple[100],Colors.purple]),
+    Shoes(colors: [Colors.pink[100],Colors.pink]),
+    Shoes(colors: [Colors.amber[100],Colors.amber]),
+  ];
 
   @override
   Widget build(BuildContext context) {
