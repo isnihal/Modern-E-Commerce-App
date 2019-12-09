@@ -4,7 +4,7 @@ import 'package:ecommerce_template/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'Shoes.dart';
+import 'shoes.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,28 +30,40 @@ class _HomePageState extends State<HomePage> {
 
   List<Shoes> products = [
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
     Shoes(
+        name: "Nike Pegasus 30",
         colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png"
+        imageURL: "assets/images/nike1.png",
+        price: 345
     ),
   ];
 

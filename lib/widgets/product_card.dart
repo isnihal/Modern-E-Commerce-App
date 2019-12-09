@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../Shoes.dart';
+import '../shoes.dart';
 
 class ProductCard extends StatelessWidget {
 
@@ -50,6 +50,40 @@ class ProductCard extends StatelessWidget {
                       child: Text(
                         "0${cardNum+1}",
                         style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: ScreenUtil().setWidth(45),
+                          bottom: ScreenUtil().setHeight(45)
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              shoe.name,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18
+                              ),
+                            ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(20),
+                            ),
+                            Text(
+                              "\$${shoe.price.toStringAsFixed(2)}",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Positioned(
