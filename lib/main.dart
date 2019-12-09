@@ -29,12 +29,30 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<Shoes> products = [
-    Shoes(colors: [Colors.red[100],Colors.red]),
-    Shoes(colors: [Colors.green[100],Colors.green]),
-    Shoes(colors: [Colors.blue[100],Colors.blue]),
-    Shoes(colors: [Colors.purple[100],Colors.purple]),
-    Shoes(colors: [Colors.pink[100],Colors.pink]),
-    Shoes(colors: [Colors.amber[100],Colors.amber]),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
+    Shoes(
+        colors: [Colors.red[200],Colors.red],
+        imageURL: "assets/images/nike1.png"
+    ),
   ];
 
   @override
@@ -106,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                       left: ScreenUtil().setWidth(30),
                     ),
                     child: ProductCard(
-                      shoes:shoes,
+                      shoe:shoes,
                       cardNum: index
                     ),
                   );
