@@ -1,5 +1,6 @@
 import 'package:ecommerce_template/utils/profile_clipper.dart';
 import 'package:ecommerce_template/widgets/brand_selector.dart';
+import 'package:ecommerce_template/widgets/product_banner.dart';
 import 'package:ecommerce_template/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -142,7 +143,11 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-            )
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(60),
+            ),
+            ProductBanner(products[5])
           ],
         ),
       ),
