@@ -1,4 +1,5 @@
 import 'package:ecommerce_template/utils/profile_clipper.dart';
+import 'package:ecommerce_template/widgets/brand_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -68,9 +69,13 @@ class _HomePageState extends State<HomePage> {
                 bottom: ScreenUtil().setHeight(105),
               ),
               child: Text(
+                //TODO:CHANGE FONT FAMILY
                 "Explore",
                 style: TextStyle(color: Colors.black87,fontSize: 32,fontWeight: FontWeight.bold),
               ),
+            ),
+            BrandSelector(
+              brands: ["Nike","Adidas","Converse","Vans"]
             )
           ],
         ),
