@@ -3,6 +3,8 @@ import 'package:ecommerce_template/widgets/brand_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'Shoes.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,6 +26,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List<Shoes> products = [];
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(
@@ -76,6 +81,29 @@ class _HomePageState extends State<HomePage> {
             ),
             BrandSelector(
               brands: ["Nike","Adidas","Converse","Vans"]
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(50),
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(1050),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                itemCount: products.length-1,
+                itemBuilder: (context,index){
+                  Shoes shoes = products[index];
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      left: ScreenUtil().setWidth(30),
+                    ),
+                    child: ProductCard(
+                      shoes:shoes,
+                      cardNum: index
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),
