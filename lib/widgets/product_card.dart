@@ -81,6 +81,24 @@ class ProductCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 24
                               ),
+                            ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(25),
+                            ),
+                            Container(
+                              width: ScreenUtil().setWidth(75),
+                              height: ScreenUtil().setHeight(75),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.add,
+                                  size: 18,
+                                  color: shoe.colors[1],
+                                ),
+                              ),
                             )
                           ],
                         ),
