@@ -57,8 +57,19 @@ class _HomePageState extends State<HomePage> {
                       width: ScreenUtil().setWidth(160),
                       height: ScreenUtil().setHeight(160),
                     ),
-                  )
+                  ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: ScreenUtil().setHeight(60),
+                left: ScreenUtil().setWidth(70),
+                bottom: ScreenUtil().setHeight(105),
+              ),
+              child: Text(
+                "Explore",
+                style: TextStyle(color: Colors.black87,fontSize: 32,fontWeight: FontWeight.bold),
               ),
             )
           ],
