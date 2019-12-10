@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: "Shop",
       home: MainPage(),
       theme: ThemeData(
-        backgroundColor: Colors.white
+        backgroundColor: Colors.white,
+        fontFamily: 'Montserrat'
       ),
     );
   }
