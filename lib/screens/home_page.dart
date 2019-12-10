@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     ),
     Shoes(
         name: "Air Jordan Max",
-        colors: [Colors.indigo[800],Colors.white12],
+        colors: [Colors.white12,Colors.indigo],
         imageURL: "assets/images/nike5.png",
         price: 999
     ),
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             BrandSelector(
-                brands: ["Nike","Adidas","Converse","Vans"]
+                brands: ["Nike","Adidas","Puma","Asics"]
             ),
             SizedBox(
               height: ScreenUtil().setHeight(50),
