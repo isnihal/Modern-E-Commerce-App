@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_template/shoes.dart';
+import 'package:ecommerce_template/models/shoes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductBanner extends StatelessWidget {

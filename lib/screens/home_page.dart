@@ -5,22 +5,8 @@ import 'package:ecommerce_template/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'shoes.dart';
+import '../models/shoes.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Shop",
-      home: HomePage(),
-      theme: ThemeData(
-        backgroundColor: Colors.white
-      ),
-    );
-  }
-}
 
 class HomePage extends StatefulWidget {
   @override
@@ -71,9 +57,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(
-      width: 1080,
-      height: 2220,
-      allowFontScaling: true
+        width: 1080,
+        height: 2220,
+        allowFontScaling: true
     )..init(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -119,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             BrandSelector(
-              brands: ["Nike","Adidas","Converse","Vans"]
+                brands: ["Nike","Adidas","Converse","Vans"]
             ),
             SizedBox(
               height: ScreenUtil().setHeight(50),
@@ -137,8 +123,8 @@ class _HomePageState extends State<HomePage> {
                       left: ScreenUtil().setWidth(30),
                     ),
                     child: ProductCard(
-                      shoe:shoes,
-                      cardNum: index
+                        shoe:shoes,
+                        cardNum: index
                     ),
                   );
                 },
