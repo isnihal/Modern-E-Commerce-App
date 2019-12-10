@@ -17,40 +17,40 @@ class _HomePageState extends State<HomePage> {
 
   List<Shoes> products = [
     Shoes(
-        name: "Nike Pegasus 30",
+        name: "Pegasus 30",
         colors: [Colors.red[200],Colors.red],
         imageURL: "assets/images/nike1.png",
         price: 345
     ),
     Shoes(
-        name: "Nike Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
+        name: "Air Force",
+        colors: [Colors.black,Colors.green],
+        imageURL: "assets/images/nike2.png",
+        price: 499
+    ),
+    Shoes(
+        name: "Air Zoom",
+        colors: [Colors.grey,Colors.black],
+        imageURL: "assets/images/nike3.png",
+        price: 300
+    ),
+    Shoes(
+        name: "Air Max",
+        colors: [Colors.white,Colors.red],
+        imageURL: "assets/images/nike4.png",
         price: 345
     ),
     Shoes(
-        name: "Nike Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
-        price: 345
+        name: "Air Jordan Max",
+        colors: [Colors.indigo[800],Colors.white12],
+        imageURL: "assets/images/nike5.png",
+        price: 999
     ),
     Shoes(
-        name: "Nike Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
-        price: 345
-    ),
-    Shoes(
-        name: "Nike Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
-        price: 345
-    ),
-    Shoes(
-        name: "Nike Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
-        price: 345
+        name: "Air Jordan 1",
+        colors: [Colors.black,Colors.red],
+        imageURL: "assets/images/nike6.png",
+        price: 400
     ),
   ];
 

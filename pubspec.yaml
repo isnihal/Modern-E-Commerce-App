@@ -46,6 +46,11 @@ flutter:
   assets:
     - assets/images/nihal.jpg
     - assets/images/nike1.png
+    - assets/images/nike2.png
+    - assets/images/nike3.png
+    - assets/images/nike4.png
+    - assets/images/nike5.png
+    - assets/images/nike6.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

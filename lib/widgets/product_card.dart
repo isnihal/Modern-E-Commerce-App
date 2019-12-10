@@ -111,7 +111,7 @@ class ProductCard extends StatelessWidget {
                         shoe.imageURL,
                         width: ScreenUtil().setWidth(640),
                         height: ScreenUtil().setHeight(610),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.contain,
                       ),
                     )
                   ],
