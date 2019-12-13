@@ -76,15 +76,27 @@ class _TestHomePageState extends State<TestHomePage> {
     for(int i=0;i<_drawerButtonTexts.length;i++) {
       if (i == _currentSelectedDrawerButtonIndex) {
         FlatButton flatButton = FlatButton(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           child: Align(alignment:Alignment.centerLeft,child: Text(_drawerButtonTexts[i],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),textAlign: TextAlign.left,)),
-          onPressed: (){}
+          onPressed: (){
+            setState(() {
+              _currentSelectedDrawerButtonIndex = i;
+            });
+          }
         );
         _drawerButtons.add(flatButton);
       }
       else{
         FlatButton flatButton = FlatButton(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           child: Container(alignment:Alignment.centerLeft,child: Text(_drawerButtonTexts[i],style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 16,),textAlign: TextAlign.left,)),
-          onPressed: (){},
+          onPressed: (){
+            setState(() {
+              _currentSelectedDrawerButtonIndex = i;
+            });
+          },
         );
         _drawerButtons.add(flatButton);
       }
