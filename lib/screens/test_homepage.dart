@@ -68,6 +68,29 @@ class _TestHomePageState extends State<TestHomePage> {
     );
   }
 
+  int _currentSelectedDrawerButtonIndex = 0;
+
+  List<Widget> _createDrawerButtons(){
+    List _drawerButtonTexts = ["Home","Cart","Contact","Shop","Profile"];
+    List<FlatButton> _drawerButtons = [];
+    for(int i=0;i<_drawerButtonTexts.length;i++) {
+      if (i == _currentSelectedDrawerButtonIndex) {
+        FlatButton flatButton = FlatButton(
+          child: Align(alignment:Alignment.centerLeft,child: Text(_drawerButtonTexts[i],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),textAlign: TextAlign.left,)),
+          onPressed: (){}
+        );
+        _drawerButtons.add(flatButton);
+      }
+      else{
+        FlatButton flatButton = FlatButton(
+          child: Container(alignment:Alignment.centerLeft,child: Text(_drawerButtonTexts[i],style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 16,),textAlign: TextAlign.left,)),
+          onPressed: (){},
+        );
+        _drawerButtons.add(flatButton);
+      }
+    }
+    return _drawerButtons;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,13 +115,7 @@ class _TestHomePageState extends State<TestHomePage> {
       leftChild: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          InkWell(child:Text("Home")),
-          InkWell(child:Text("Home")),
-          InkWell(child:Text("Home")),
-          InkWell(child:Text("Home")),
-          InkWell(child:Text("Home")),
-        ],
+        children: _createDrawerButtons()
       ),
         scaffold: Scaffold(
           backgroundColor: Theme.of(context).backgroundColor,

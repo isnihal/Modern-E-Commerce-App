@@ -14,7 +14,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
-  int _currentTabIndex = 0;
+  int _currentTabIndex = 1;
   List<Widget> _children;
 
   final bottomBarModels = <BottomNavigationBarItem>[
