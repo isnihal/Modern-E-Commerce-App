@@ -55,6 +55,19 @@ class _TestHomePageState extends State<TestHomePage> {
     ),
   ];
 
+  //  Current State of InnerDrawerState
+  final GlobalKey<InnerDrawerState> _innerDrawerKey = GlobalKey<InnerDrawerState>();
+
+  void _toggle()
+  {
+    _innerDrawerKey.currentState.toggle(
+      // direction is optional
+      // if not set, the last direction will be used
+      //InnerDrawerDirection.start OR InnerDrawerDirection.end
+        //direction: InnerDrawerDirection.end
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +78,7 @@ class _TestHomePageState extends State<TestHomePage> {
         allowFontScaling: true
     )..init(context);
     return InnerDrawer(
+      key: _innerDrawerKey,
       boxShadow: [BoxShadow(color: Colors.transparent)],
       colorTransition: Colors.white,
       borderRadius: 50, // default 0
@@ -104,7 +118,7 @@ class _TestHomePageState extends State<TestHomePage> {
                       IconButton(
                         icon: Icon(Icons.menu),
                         onPressed: (){
-
+                          _toggle();
                         },
                       ),
                       ClipOval(
@@ -124,7 +138,6 @@ class _TestHomePageState extends State<TestHomePage> {
                     bottom: ScreenUtil().setHeight(105),
                   ),
                   child: Text(
-                    //TODO:CHANGE FONT FAMILY
                     "Explore",
                     style: TextStyle(color: Colors.black87,fontSize: 32,fontWeight: FontWeight.bold),
                   ),
