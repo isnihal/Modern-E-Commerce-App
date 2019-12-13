@@ -1,8 +1,8 @@
-import 'package:ecommerce_template/screens/test_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:ecommerce_template/screens/home_page.dart';
+import 'package:ecommerce_template/screens/test_homepage.dart';
 import 'package:ecommerce_template/screens/favorite.dart';
 import 'package:ecommerce_template/screens/profile.dart';
 import 'package:rect_getter/rect_getter.dart';
