@@ -1,3 +1,4 @@
+import 'package:ecommerce_template/screens/test_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     SystemChrome.setEnabledSystemUIOverlays([]);
     _children = [
       Favorite(),
-      HomePage(),
+      TestHomePage(),
       Profile()
     ];
     super.initState();
