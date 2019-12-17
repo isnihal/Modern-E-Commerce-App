@@ -9,12 +9,12 @@ import '../models/shoes.dart';
 
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 
-class TestHomePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _TestHomePageState createState() => _TestHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _TestHomePageState extends State<TestHomePage> {
+class _HomePageState extends State<HomePage> {
 
   List<Shoes> products = [
     Shoes(

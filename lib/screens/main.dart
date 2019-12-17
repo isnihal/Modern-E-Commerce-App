@@ -1,7 +1,6 @@
 import 'package:ecommerce_template/screens/main_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecommerce_template/screens/home_page.dart';
 
 void main() => runApp(MyApp());
 
