@@ -18,23 +18,49 @@ class ProductPage extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: IconButton(icon: Icon(Icons.arrow_back),onPressed: () => Navigator.pop(context),),
+                  child: IconButton(icon: Icon(Icons.arrow_back),
+                    onPressed: () => Navigator.pop(context),),
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: ShapeOfView(
-                    child: Container(
-                      height: 300,
-                      width: 300,
-                      color: Colors.redAccent,
+                Stack(
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.center,
+                        child: ShapeOfView(
+                          child: Container(
+                            height: 300,
+                            width: 300,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [Colors.red[200], Colors.red],
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft
+                                )
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Text("01",style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),),
+                                ),
+                              ],
+                            ),
+                          ),
+                          shape: TriangleShape(
+                              percentBottom: 0.5,
+                              percentLeft: 0,
+                              percentRight: 0
+                          ),
+                        )
                     ),
-                    shape: TriangleShape(
-                        percentBottom: 0.5,
-                        percentLeft: 0,
-                        percentRight: 0
-                    ),
-                  )
-                  ),
+                    Container(
+                      height: 610,
+                      width: 640,
+                      child: Image.asset("assets/images/nike1.png")
+                    )
+                  ],
+                ),
+
               ],
             )
           ],
