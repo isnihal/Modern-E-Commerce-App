@@ -1,4 +1,5 @@
 import 'package:ecommerce_template/screens/main_page.dart';
+import 'package:ecommerce_template/screens/product_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,6 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: {
+        ProductPage.routeName: (ctx)=>ProductPage(),
+      },
       title: "Shop",
       home: MainPage(),
       theme: ThemeData(
