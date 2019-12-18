@@ -96,9 +96,21 @@ class ProductPage extends StatelessWidget {
                         height: 80,
                         width: mediaQuery.size.width*0.9,
                         child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-                          overflow: TextOverflow.clip,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 4,
                         )
-                    )
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                        width: mediaQuery.size.width*0.9,
+                        child: Text("Sizes",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24
+                          ),
+                        )
+                    ),
                   ],
                 ),
               ),
