@@ -1,3 +1,4 @@
+import 'package:ecommerce_template/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -5,6 +6,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var mediaQuery = MediaQuery.of(context);
+    List cart = ["yo","yo","yo","yo"];
 
     return Scaffold(
       body: Column(
@@ -35,7 +37,20 @@ class CartScreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Expanded(
-                  child: Container(color: Colors.black,),
+                  child: GridView.builder(
+                    itemCount: cart.length,
+                    padding: EdgeInsets.all(8),
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 32,
+                      crossAxisSpacing: 8,
+                      childAspectRatio: 6/7
+                    ),
+                    itemBuilder: (ctx,index){
+                      return CartItem(index);
+                    },
+                  )
                 ),
                 Container(
                   height: mediaQuery.size.height/4,
