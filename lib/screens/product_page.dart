@@ -68,14 +68,13 @@ class ProductPage extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                child: Row(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
                               "Pegasus 30",
@@ -85,16 +84,21 @@ class ProductPage extends StatelessWidget {
                                   fontSize: 28
                               )
                           ),
-                          Container(
-                            height: 80,
-                            width: mediaQuery.size.width*0.9,
-                              child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-                                overflow: TextOverflow.clip,
-                              )
+                          IconButton(
+                            icon: Icon(Icons.favorite_border,),
+                            onPressed: (){},
                           )
                         ],
                       )
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                        height: 80,
+                        width: mediaQuery.size.width*0.9,
+                        child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+                          overflow: TextOverflow.clip,
+                        )
+                    )
                   ],
                 ),
               ),

@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   final bottomBarModels = <BottomNavigationBarItem>[
     BottomNavigationBarItem(icon: Icon(Icons.favorite,),),
     BottomNavigationBarItem(icon: Icon(Icons.home),),
-    BottomNavigationBarItem(icon: Icon(Icons.person,),)
+    BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,),)
   ];
 
 
