@@ -111,6 +111,54 @@ class ProductPage extends StatelessWidget {
                           ),
                         )
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                              child: Text(
+                                "7",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                              child: Text(
+                                "8",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                              child: Text(
+                                "9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                              child: Text(
+                                "10",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
