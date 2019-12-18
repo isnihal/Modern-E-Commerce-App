@@ -43,8 +43,8 @@ class CartScreen extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 32,
-                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 24,
+                      crossAxisSpacing: 16,
                       childAspectRatio: 6/7
                     ),
                     itemBuilder: (ctx,index){
