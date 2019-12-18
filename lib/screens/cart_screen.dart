@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var mediaQuery = MediaQuery.of(context);
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +32,75 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: Container(color: Colors.black,),
+                ),
+                Container(
+                  height: mediaQuery.size.height/4,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Shipping", style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20
+                            )),
+                            Text("\$29", style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20
+                            )),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Tax(15%)", style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20
+                            )),
+                            Text("\$20", style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20
+                            )),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Total", style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 28
+                            )),
+                            Text("\$249", style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 28
+                            )),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )
           ),
           InkWell(
             onTap: (){},
