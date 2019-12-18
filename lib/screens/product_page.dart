@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
 
   static const routeName = "/product_page";
+  bool isFavorite = false;
+  int selectedSize = 0;
 
+  @override
+  _ProductPageState createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-
+    var sizes = ["7","8","9","10"];
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -85,8 +92,12 @@ class ProductPage extends StatelessWidget {
                               )
                           ),
                           IconButton(
-                            icon: Icon(Icons.favorite_border,),
-                            onPressed: (){},
+                            icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
+                            onPressed: (){
+                              setState(() {
+                                widget.isFavorite=!widget.isFavorite;
+                              });
+                            },
                           )
                         ],
                       )
@@ -115,48 +126,26 @@ class ProductPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.circular(15)),
-                            child: Center(
-                              child: Text(
-                                "7",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                        children: sizes.map((item){
+                          int currentButton  = sizes.indexOf(item);
+                          return InkWell(
+                            onTap: (){
+                              setState(() {
+                                widget.selectedSize = currentButton;
+                              });
+                            },
+                            child: Container(
+                              width: 45,
+                              height: 45,
+                              decoration: BoxDecoration(color: currentButton==widget.selectedSize? Colors.red:Colors.transparent,borderRadius: BorderRadius.circular(15)),
+                              child: Center(
+                                child: Text(
+                                  item,style: TextStyle(color: currentButton==widget.selectedSize? Colors.white:Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                            child: Center(
-                              child: Text(
-                                "8",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                            child: Center(
-                              child: Text(
-                                "9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                            child: Center(
-                              child: Text(
-                                "10",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
-                              ),
-                            ),
-                          )
-                        ],
+                          );
+                        }).toList()
                       ),
                     )
                   ],
