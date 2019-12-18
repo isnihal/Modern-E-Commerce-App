@@ -1,9 +1,9 @@
+import 'package:ecommerce_template/screens/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:ecommerce_template/screens/homepage.dart';
 import 'package:ecommerce_template/screens/favorite.dart';
-import 'package:ecommerce_template/screens/profile.dart';
 import 'package:rect_getter/rect_getter.dart';
 
 class MainPage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     _children = [
       Favorite(),
       HomePage(),
-      Profile()
+      CartScreen()
     ];
     super.initState();
   }
