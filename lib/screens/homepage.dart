@@ -59,15 +59,6 @@ class _HomePageState extends State<HomePage> {
   //  Current State of InnerDrawerState
   final GlobalKey<InnerDrawerState> _innerDrawerKey = GlobalKey<InnerDrawerState>();
 
-  void _toggle()
-  {
-    _innerDrawerKey.currentState.toggle(
-      // direction is optional
-      // if not set, the last direction will be used
-      //InnerDrawerDirection.start OR InnerDrawerDirection.end
-        //direction: InnerDrawerDirection.end
-    );
-  }
 
   int _currentSelectedDrawerButtonIndex = 0;
 
@@ -108,6 +99,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    void _toggle()
+    {
+      _innerDrawerKey.currentState.toggle(
+        // direction is optional
+        // if not set, the last direction will be used
+        //InnerDrawerDirection.start OR InnerDrawerDirection.end
+        //direction: InnerDrawerDirection.end
+      );
+    }
+
     ScreenUtil.instance = ScreenUtil(
         width: 1080,
         height: 2220,
@@ -130,7 +131,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: _createDrawerButtons()
       ),
-        scaffold: Scaffold(
+        scaffold: _currentSelectedDrawerButtonIndex ==1? ContactScreen(_toggle):Scaffold(
           backgroundColor: Theme.of(context).backgroundColor,
           body: SingleChildScrollView(
             child: Column(

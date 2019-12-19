@@ -9,6 +9,10 @@ class ContactScreen extends StatelessWidget {
 
   static const routeName =  "/contact_screen";
 
+  final Function drawerFunction;
+
+  ContactScreen(this.drawerFunction);
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -22,18 +26,26 @@ class ContactScreen extends StatelessWidget {
                   ColumnSuper(
                     innerDistance: -80.0,
                     children: <Widget>[
-                      ShapeOfView(
-                          elevation: 4,
-                          width: double.infinity,
-                          height: 320,
-                          shape: DiagonalShape(
-                              position: DiagonalPosition.Bottom,
-                              direction: DiagonalDirection.Left,
-                              angle: DiagonalAngle.deg(angle: 10)
+                      Stack(
+                        children: <Widget>[
+                          ShapeOfView(
+                              elevation: 4,
+                              width: double.infinity,
+                              height: 320,
+                              shape: DiagonalShape(
+                                  position: DiagonalPosition.Bottom,
+                                  direction: DiagonalDirection.Left,
+                                  angle: DiagonalAngle.deg(angle: 10)
+                              ),
+                              child: Image.asset(
+                                "assets/images/mac.jpg", fit: BoxFit.fill,
+                              )
                           ),
-                          child: Image.asset(
-                            "assets/images/mac.jpg", fit: BoxFit.fill,
-                          )
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: IconButton(icon: Icon(Icons.menu),color: Colors.white70,onPressed: drawerFunction,),
+                          ),
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

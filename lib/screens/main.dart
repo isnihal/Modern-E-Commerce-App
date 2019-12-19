@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         ProductPage.routeName: (ctx)=>ProductPage(),
-        ContactScreen.routeName: (ctx) =>ContactScreen(),
       },
       title: "Shop",
       home: MainPage(),
