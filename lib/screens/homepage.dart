@@ -145,11 +145,12 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                  top: ScreenUtil().setHeight(40),
-                  left: ScreenUtil().setHeight(40),
-                  right: ScreenUtil().setHeight(40),
+                  top: 8,
+                  left: 8,
+                  right:8
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
