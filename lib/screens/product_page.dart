@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../provider/shop_provider.dart';
+import '../models/shoes.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 
 class ProductPage extends StatefulWidget {
@@ -7,6 +10,8 @@ class ProductPage extends StatefulWidget {
   bool isFavorite = false;
   int selectedSize = 0;
 
+
+
   @override
   _ProductPageState createState() => _ProductPageState();
 }
@@ -14,8 +19,15 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
+
+    var arguments = ModalRoute.of(context).settings.arguments as Map;
+    Shoes shoe = arguments["shoe"];
     var mediaQuery = MediaQuery.of(context);
+    var provider = Provider.of<ShopProvider>(context);
     var sizes = ["7","8","9","10"];
+
+    if(provider.wishlist.contains(shoe)) widget.isFavorite = true;
+
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -94,6 +106,7 @@ class _ProductPageState extends State<ProductPage> {
                           IconButton(
                             icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
                             onPressed: (){
+                              provider.addToWishList(shoe);
                               setState(() {
                                 widget.isFavorite=!widget.isFavorite;
                               });

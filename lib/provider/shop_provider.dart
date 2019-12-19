@@ -4,6 +4,8 @@ import '../models/shoes.dart';
 
 class ShopProvider with ChangeNotifier{
 
+  Shoes selectedShoe;
+
   List<Shoes> _products = [
     Shoes(
         name: "Pegasus 30",
@@ -59,14 +61,7 @@ class ShopProvider with ChangeNotifier{
     return[..._cart];
   }
 
-  List<Shoes> _wishlist  = [
-    Shoes(
-        name: "Air Jordan 1",
-        colors: [Colors.black,Colors.red],
-        imageURL: "assets/images/nike6.png",
-        price: 400
-    ),
-  ];
+  List<Shoes> _wishlist  = [];
   List<Shoes> get wishlist{
     return[..._wishlist];
   }
