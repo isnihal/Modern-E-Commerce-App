@@ -1,7 +1,9 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_launch/flutter_launch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shape_of_view/shape_of_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatelessWidget {
   @override
@@ -90,17 +92,17 @@ class ContactScreen extends StatelessWidget {
                           ),
                         ),
                         ListTile(
-                          onTap: (){},
+                          onTap: _sendEmail,
                           leading: Icon(FontAwesomeIcons.at,color: Colors.black87,),
                           title: Text("nihal@nihalismail.com"),
                         ),
                         ListTile(
-                          onTap: (){},
+                          onTap:_launchWhatsapp,
                           leading: Icon(FontAwesomeIcons.whatsapp,color: Colors.green,),
                           title: Text("+91 7907136126"),
                         ),
                         ListTile(
-                          onTap: (){},
+                          onTap: _launchWebsite,
                           leading: Icon(FontAwesomeIcons.globeAmericas,color: Colors.blue,),
                           title: Text("www.nihalismail.com",style: TextStyle(color: Colors.black),),
                         )
@@ -112,4 +114,27 @@ class ContactScreen extends StatelessWidget {
         )
     );
   }
+
+  _sendEmail() async{
+    const url = "mailto:<nihal@nihalismail.com>?subject=<App Development Enquiry>&body=<Hi\n>";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchWebsite() async {
+    const url = 'http://www.nihalismail.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _launchWhatsapp() async {
+    await FlutterLaunch.launchWathsApp(phone: "7907136126", message: "Hello");
+  }
+
 }
