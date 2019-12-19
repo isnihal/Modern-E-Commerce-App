@@ -1,4 +1,5 @@
 import 'package:ecommerce_template/screens/cart_screen.dart';
+import 'package:ecommerce_template/screens/contact_screen.dart';
 import 'package:ecommerce_template/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     SystemChrome.setEnabledSystemUIOverlays([]);
     _children = [
       WishListScreen(),
-      HomePage(),
+      ContactScreen(),
       CartScreen()
     ];
     super.initState();
