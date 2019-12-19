@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
   int _currentSelectedDrawerButtonIndex = 0;
 
   List<Widget> _createDrawerButtons(){
-    List _drawerButtonTexts = ["Home","Cart","Contact","Shop","Profile"];
+    List _drawerButtonTexts = ["Home","Cart","Contact","Wishlist","Profile"];
     List<FlatButton> _drawerButtons = [];
     for(int i=0;i<_drawerButtonTexts.length;i++) {
       if (i == _currentSelectedDrawerButtonIndex) {

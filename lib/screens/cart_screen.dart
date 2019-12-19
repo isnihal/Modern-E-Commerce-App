@@ -1,12 +1,52 @@
 import 'package:ecommerce_template/widgets/cart_item.dart';
+import 'package:ecommerce_template/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import '../models/shoes.dart';
 
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
     var mediaQuery = MediaQuery.of(context);
-    List cart = ["yo","yo","yo","yo"];
+    List<Shoes> products = [
+      Shoes(
+          name: "Pegasus 30",
+          colors: [Colors.red[200],Colors.red],
+          imageURL: "assets/images/nike1.png",
+          price: 345
+      ),
+      Shoes(
+          name: "Air Force",
+          colors: [Colors.black,Colors.green],
+          imageURL: "assets/images/nike2.png",
+          price: 499
+      ),
+      Shoes(
+          name: "Air Zoom",
+          colors: [Colors.grey,Colors.black],
+          imageURL: "assets/images/nike3.png",
+          price: 300
+      ),
+      Shoes(
+          name: "Air Max",
+          colors: [Colors.white,Colors.red],
+          imageURL: "assets/images/nike4.png",
+          price: 345
+      ),
+      Shoes(
+          name: "Air Jordan Max",
+          colors: [Colors.white12,Colors.indigo],
+          imageURL: "assets/images/nike5.png",
+          price: 999
+      ),
+      Shoes(
+          name: "Air Jordan 1",
+          colors: [Colors.black,Colors.red],
+          imageURL: "assets/images/nike6.png",
+          price: 400
+      ),
+    ];
+
 
     return Scaffold(
       body: Column(
@@ -16,10 +56,7 @@ class CartScreen extends StatelessWidget {
             width: double.infinity,
             child: Stack(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(icon: Icon(Icons.arrow_back),onPressed: (){},),
-                ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 8),
                   child: Align(
@@ -38,17 +75,17 @@ class CartScreen extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: GridView.builder(
-                    itemCount: cart.length,
+                    itemCount: products.length,
                     padding: EdgeInsets.all(8),
                     scrollDirection: Axis.vertical,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 24,
                       crossAxisSpacing: 16,
-                      childAspectRatio: 6/7
+                      childAspectRatio: 2/2.75
                     ),
                     itemBuilder: (ctx,index){
-                      return CartItem(index);
+                      return CartItem(cardNum: index,shoe: products[index],);
                     },
                   )
                 ),
