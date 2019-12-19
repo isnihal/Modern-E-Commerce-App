@@ -70,7 +70,7 @@ class CartScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20
                             )),
-                            Text("\$29", style: TextStyle(
+                            Text("\$${provider.shippingFee.toStringAsFixed(2)}", style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20
@@ -88,7 +88,7 @@ class CartScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20
                             )),
-                            Text("\$20", style: TextStyle(
+                            Text("\$${provider.tax.toStringAsFixed(2)}", style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20
@@ -106,7 +106,7 @@ class CartScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 28
                             )),
-                            Text("\$249", style: TextStyle(
+                            Text("\$${provider.totalAmount.toStringAsFixed(2)}", style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 28

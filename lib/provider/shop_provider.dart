@@ -6,6 +6,33 @@ class ShopProvider with ChangeNotifier{
 
   Shoes selectedShoe;
 
+  double get totalSum {
+    if (_cart.isEmpty)
+      return 0;
+    else {
+      double sum = 0;
+      _cart.forEach((shoe) {
+        sum += shoe.price;
+      });
+      return sum;
+    }
+  }
+
+  double get shippingFee{
+    if(_cart.isEmpty) return 0;
+    else return  _cart.length*4.5;
+  }
+
+  double get tax{
+    if(_cart.isEmpty) return 0;
+    else return totalSum  * 0.15;
+  }
+
+  double get totalAmount{
+    if(_cart.isEmpty) return 0;
+    else return totalSum+tax+shippingFee;
+  }
+
   List<Shoes> _products = [
     Shoes(
         name: "Pegasus 30",
