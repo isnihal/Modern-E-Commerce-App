@@ -98,9 +98,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    void _toggle()
-    {
+    void _toggle() {
       _innerDrawerKey.currentState.toggle(
         // direction is optional
         // if not set, the last direction will be used
@@ -113,13 +111,16 @@ class _HomePageState extends State<HomePage> {
         width: 1080,
         height: 2220,
         allowFontScaling: true
-    )..init(context);
+    )
+      ..init(context);
     return InnerDrawer(
       key: _innerDrawerKey,
       boxShadow: [BoxShadow(color: Colors.transparent)],
       colorTransition: Colors.white,
-      borderRadius: 50, // default 0
-      leftAnimationType: InnerDrawerAnimation.static, // default static
+      borderRadius: 50,
+      // default 0
+      leftAnimationType: InnerDrawerAnimation.static,
+      // default static
       rightAnimationType: InnerDrawerAnimation.quadratic,
       backgroundColor: Colors.white,
       innerDrawerCallback: (a) => print(a),
@@ -127,89 +128,92 @@ class _HomePageState extends State<HomePage> {
       proportionalChildArea: true,
       scale: IDOffset.horizontal(0.7),
       leftChild: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: _createDrawerButtons()
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: _createDrawerButtons()
       ),
-        scaffold: _currentSelectedDrawerButtonIndex ==1? ContactScreen(_toggle):Scaffold(
-          backgroundColor: Theme.of(context).backgroundColor,
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: ScreenUtil().setHeight(40),
-                    left: ScreenUtil().setHeight(40),
-                    right: ScreenUtil().setHeight(40),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.menu),
-                        onPressed: (){
-                          _toggle();
-                        },
+      scaffold: _currentSelectedDrawerButtonIndex == 1
+          ? ContactScreen(_toggle)
+          : Scaffold(
+        backgroundColor: Theme
+            .of(context)
+            .backgroundColor,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(
+                  top: ScreenUtil().setHeight(40),
+                  left: ScreenUtil().setHeight(40),
+                  right: ScreenUtil().setHeight(40),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.menu),
+                      onPressed: () {
+                        _toggle();
+                      },
+                    ),
+                    ClipOval(
+                      clipper: ProfileClipper(),
+                      child: Image.asset("assets/images/nihal.jpg",
+                        width: ScreenUtil().setWidth(160),
+                        height: ScreenUtil().setHeight(160),
                       ),
-                      InkWell(
-                        onTap:  () => Navigator.of(context).pushNamed(ContactScreen.routeName),
-                        child: ClipOval(
-                          clipper: ProfileClipper(),
-                          child: Image.asset("assets/images/nihal.jpg",
-                            width: ScreenUtil().setWidth(160),
-                            height: ScreenUtil().setHeight(160),
-                          ),
-                        ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: ScreenUtil().setHeight(60),
+                  left: ScreenUtil().setWidth(70),
+                  bottom: ScreenUtil().setHeight(105),
+                ),
+                child: Text(
+                  "Explore",
+                  style: TextStyle(color: Colors.black87,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              BrandSelector(
+                  brands: ["Nike", "Adidas", "Puma", "Asics"]
+              ),
+              SizedBox(
+                height: ScreenUtil().setHeight(50),
+              ),
+              SizedBox(
+                height: ScreenUtil().setHeight(1050),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  itemCount: products.length - 1,
+                  itemBuilder: (context, index) {
+                    Shoes shoes = products[index];
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: ScreenUtil().setWidth(30),
                       ),
-                    ],
-                  ),
+                      child: ProductCard(
+                          shoe: shoes,
+                          cardNum: index
+                      ),
+                    );
+                  },
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: ScreenUtil().setHeight(60),
-                    left: ScreenUtil().setWidth(70),
-                    bottom: ScreenUtil().setHeight(105),
-                  ),
-                  child: Text(
-                    "Explore",
-                    style: TextStyle(color: Colors.black87,fontSize: 32,fontWeight: FontWeight.bold),
-                  ),
-                ),
-                BrandSelector(
-                    brands: ["Nike","Adidas","Puma","Asics"]
-                ),
-                SizedBox(
-                  height: ScreenUtil().setHeight(50),
-                ),
-                SizedBox(
-                  height: ScreenUtil().setHeight(1050),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    physics: BouncingScrollPhysics(),
-                    itemCount: products.length-1,
-                    itemBuilder: (context,index){
-                      Shoes shoes = products[index];
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: ScreenUtil().setWidth(30),
-                        ),
-                        child: ProductCard(
-                            shoe:shoes,
-                            cardNum: index
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                SizedBox(
-                  height: ScreenUtil().setHeight(60),
-                ),
-                ProductBanner(products[5])
-              ],
-            ),
+              ),
+              SizedBox(
+                height: ScreenUtil().setHeight(60),
+              ),
+              ProductBanner(products[5])
+            ],
           ),
         ),
+      ),
     );
   }
 }
