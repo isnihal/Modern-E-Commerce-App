@@ -49,14 +49,7 @@ class ShopProvider with ChangeNotifier{
     return [..._products];
   }
 
-  List<Shoes> _cart = [
-    Shoes(
-        name: "Air Force",
-        colors: [Colors.black,Colors.green],
-        imageURL: "assets/images/nike2.png",
-        price: 499
-    ),
-  ];
+  List<Shoes> _cart = [];
   List<Shoes> get cart{
     return[..._cart];
   }
@@ -67,11 +60,12 @@ class ShopProvider with ChangeNotifier{
   }
 
   void addToCart(Shoes shoe){
-    _cart.add(shoe);
+    if(!_cart.contains(shoe)) _cart.add(shoe);
   }
 
-  void removeFromCart(Shoes shoe){
+  void removeFromCart(Shoes shoe) {
     _cart.remove(shoe);
+    notifyListeners();
   }
 
   void addToWishList(Shoes shoe){
@@ -79,7 +73,19 @@ class ShopProvider with ChangeNotifier{
   }
 
   void removeFromWishList(Shoes shoe){
+    print("Remove from wishlist");
     _wishlist.remove(shoe);
+    notifyListeners();
+  }
+
+  bool isShoesInCart(Shoes shoe){
+    for(int i=0;i<_cart.length;i++){
+      Shoes obj = _cart[i];
+      if(shoe.name == obj.name){
+        return true;
+      }
+    }
+    return false;
   }
 
   bool isShoesInWishlist(Shoes shoe){

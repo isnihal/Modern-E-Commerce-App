@@ -48,7 +48,7 @@ class WishListScreen extends StatelessWidget {
                             childAspectRatio: 2/2.75
                         ),
                         itemBuilder: (ctx,index){
-                          return CartItem(cardNum: index,shoe: products[index],);
+                          return CartItem(cardNum: index,shoe: products[index],isWishlist: true,);
                         },
 
                   )

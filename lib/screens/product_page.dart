@@ -196,26 +196,31 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                     ),
                     Expanded(
-                      child: Container(
-                        height: 75,
-                        width: 100,
-                        child: Center(
-                          child: Text(
-                              "ADD TO CART",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
-                              )
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
-                            gradient: LinearGradient(
-                              colors: [Colors.red,Colors.red[200]],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft
+                      child: InkWell(
+                        onTap: (){
+                          if(!provider.isShoesInCart(shoe)) provider.addToCart(shoe);
+                        },
+                        child: Container(
+                          height: 75,
+                          width: 100,
+                          child: Center(
+                            child: Text(
+                                "ADD TO CART",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18
+                                )
                             ),
+                          ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
+                              gradient: LinearGradient(
+                                colors: [Colors.red,Colors.red[200]],
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft
+                              ),
+                          ),
                         ),
                       ),
                     )

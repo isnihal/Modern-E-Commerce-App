@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../provider/shop_provider.dart';
 import '../models/shoes.dart';
 
 class CartItem extends StatelessWidget {
 
   final Shoes shoe;
   final int cardNum;
+  final bool isWishlist;
 
-  CartItem({@required this.cardNum,@required this.shoe});
+  CartItem({@required this.cardNum,@required this.shoe,@required this.isWishlist});
 
   Widget build(BuildContext context) {
 
     var mediaQuery = MediaQuery.of(context);
+    var provider = Provider.of<ShopProvider>(context);
 
     return Container(
       child: Stack(
@@ -89,6 +93,16 @@ class CartItem extends StatelessWidget {
                           width: 140,
                           height: 160,
                           fit: BoxFit.contain,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          onPressed: (){
+                            if(isWishlist)provider.removeFromWishList(shoe);
+                            else provider.removeFromCart(shoe);
+                          },
+                          icon: isWishlist?Icon(Icons.favorite,color: Colors.white,):Icon(Icons.delete,color: Colors.white,),
                         ),
                       )
                     ],
