@@ -204,6 +204,7 @@ class _ProductPageState extends State<ProductPage> {
                             provider.addToCart(shoe);
                             _scaffoldKey.currentState.showSnackBar(SnackBar(
                               content: Text("Item added to Cart"),
+                              duration: Duration(seconds: 1),
                               action: SnackBarAction(
                                 label: "Remove Item",
                                 onPressed: (){
@@ -216,6 +217,7 @@ class _ProductPageState extends State<ProductPage> {
                           else{
                             _scaffoldKey.currentState.showSnackBar(SnackBar(
                               content: Text("Item already in Cart"),
+                              duration: Duration(seconds: 1),
                               action: SnackBarAction(
                                 label: "Dismiss",
                                 onPressed: (){

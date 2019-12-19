@@ -95,7 +95,34 @@ class ProductCard extends StatelessWidget {
                                 height: ScreenUtil().setHeight(25),
                               ),
                               InkWell(
-                                onTap: () => provider.addToCart(shoe),
+                                onTap: () {
+                                  if(!provider.isShoesInCart(shoe)){
+                                    provider.addToCart(shoe);
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text("Item added to cart"),
+                                      duration: Duration(seconds: 1),
+                                      action: SnackBarAction(
+                                        label: "Remove Item",
+                                        onPressed: (){
+                                          Scaffold.of(context).removeCurrentSnackBar();
+                                          provider.removeFromCart(shoe);
+                                        },
+                                      ),
+                                    ));
+                                  }
+                                  else{
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text("Item already in cart"),
+                                      duration: Duration(seconds: 1),
+                                      action: SnackBarAction(
+                                        label: "Dismiss",
+                                        onPressed: (){
+                                          Scaffold.of(context).removeCurrentSnackBar();
+                                        },
+                                      ),
+                                    ));
+                                  }
+                                },
                                 child: Container(
                                   width: ScreenUtil().setWidth(75),
                                   height: ScreenUtil().setHeight(75),
