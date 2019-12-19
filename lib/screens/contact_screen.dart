@@ -34,7 +34,7 @@ class ContactScreen extends StatelessWidget {
                                   angle: DiagonalAngle.deg(angle: 10)
                               ),
                               child: Image.asset(
-                                "assets/images/mac.jpg", fit: BoxFit.fill,
+                                "assets/images/mac.jpg", fit: BoxFit.fill,filterQuality: FilterQuality.low,
                               )
                           ),
                         ],
@@ -63,7 +63,7 @@ class ContactScreen extends StatelessWidget {
                                     child: Text("Nihal Ismail",style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 28
+                                        fontSize: 26
                                     ),),
                                   ),
                                   Padding(
@@ -83,37 +83,39 @@ class ContactScreen extends StatelessWidget {
                     ],
                   ),
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal:10.0,vertical: 16),
-                          child: Text(
-                            "Imagining your Business like this?",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 28
-                              )
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal:10.0,vertical: 16),
+                            child: Text(
+                              "Imagining your Business like this?",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 28
+                                )
+                            ),
                           ),
-                        ),
-                        ListTile(
-                          onTap: _sendEmail,
-                          leading: Icon(FontAwesomeIcons.at,color: Colors.black87,),
-                          title: Text("nihal@nihalismail.com"),
-                        ),
-                        ListTile(
-                          onTap:_launchWhatsapp,
-                          leading: Icon(FontAwesomeIcons.whatsapp,color: Colors.green,),
-                          title: Text("+91 7907136126"),
-                        ),
-                        ListTile(
-                          onTap: _launchWebsite,
-                          leading: Icon(FontAwesomeIcons.globeAmericas,color: Colors.blue,),
-                          title: Text("www.nihalismail.com",style: TextStyle(color: Colors.black),),
-                        )
-                      ],
+                          ListTile(
+                            onTap: _sendEmail,
+                            leading: Icon(FontAwesomeIcons.at,color: Colors.black87,),
+                            title: Text("nihal@nihalismail.com"),
+                          ),
+                          ListTile(
+                            onTap:_launchWhatsapp,
+                            leading: Icon(FontAwesomeIcons.whatsapp,color: Colors.green,),
+                            title: Text("+91 7907136126"),
+                          ),
+                          ListTile(
+                            onTap: _launchWebsite,
+                            leading: Icon(FontAwesomeIcons.globeAmericas,color: Colors.blue,),
+                            title: Text("www.nihalismail.com",style: TextStyle(color: Colors.black),),
+                          )
+                        ],
+                      ),
                     )
                   )
                 ]

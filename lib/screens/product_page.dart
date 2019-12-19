@@ -90,87 +90,89 @@ class _ProductPageState extends State<ProductPage> {
             ),
             Expanded(
               child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                              shoe.name,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 28
-                              )
-                          ),
-                          IconButton(
-                            icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
-                            onPressed: (){
-                              if(!widget.isFavorite){
-                                provider.addToWishList(shoe);
-                              }
-                              else{
-                                provider.removeFromWishList(shoe);
-                              }
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                                shoe.name,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 28
+                                )
+                            ),
+                            IconButton(
+                              icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
+                              onPressed: (){
+                                if(!widget.isFavorite){
+                                  provider.addToWishList(shoe);
+                                }
+                                else{
+                                  provider.removeFromWishList(shoe);
+                                }
 
-                              setState(() {
-                                widget.isFavorite=!widget.isFavorite;
-                              });
-                            },
+                                setState(() {
+                                  widget.isFavorite=!widget.isFavorite;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                          height: 80,
+                          width: mediaQuery.size.width*0.9,
+                          child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 4,
                           )
-                        ],
-                      )
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                        height: 80,
-                        width: mediaQuery.size.width*0.9,
-                        child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 4,
-                        )
-                    ),
-                    Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
-                        width: mediaQuery.size.width*0.9,
-                        child: Text("Sizes",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24
-                          ),
-                        )
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: sizes.map((item){
-                          int currentButton  = sizes.indexOf(item);
-                          return InkWell(
-                            onTap: (){
-                              setState(() {
-                                widget.selectedSize = currentButton;
-                              });
-                            },
-                            child: Container(
-                              width: 45,
-                              height: 45,
-                              decoration: BoxDecoration(color: currentButton==widget.selectedSize? Colors.red:Colors.transparent,borderRadius: BorderRadius.circular(15)),
-                              child: Center(
-                                child: Text(
-                                  item,style: TextStyle(color: currentButton==widget.selectedSize? Colors.white:Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                      ),
+                      Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                          width: mediaQuery.size.width*0.9,
+                          child: Text("Sizes",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24
+                            ),
+                          )
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 4),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: sizes.map((item){
+                            int currentButton  = sizes.indexOf(item);
+                            return InkWell(
+                              onTap: (){
+                                setState(() {
+                                  widget.selectedSize = currentButton;
+                                });
+                              },
+                              child: Container(
+                                width: 45,
+                                height: 45,
+                                decoration: BoxDecoration(color: currentButton==widget.selectedSize? Colors.red:Colors.transparent,borderRadius: BorderRadius.circular(15)),
+                                child: Center(
+                                  child: Text(
+                                    item,style: TextStyle(color: currentButton==widget.selectedSize? Colors.white:Colors.black,fontWeight: FontWeight.w900,fontFamily: "Roboto",fontSize: 16),
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }).toList()
-                      ),
-                    )
-                  ],
+                            );
+                          }).toList()
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
