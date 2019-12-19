@@ -47,12 +47,26 @@ class ShopProvider with ChangeNotifier{
     return [..._products];
   }
 
-  List<Shoes> _cart = [];
+  List<Shoes> _cart = [
+    Shoes(
+        name: "Air Force",
+        colors: [Colors.black,Colors.green],
+        imageURL: "assets/images/nike2.png",
+        price: 499
+    ),
+  ];
   List<Shoes> get cart{
     return[..._cart];
   }
 
-  List<Shoes> _wishlist  = [];
+  List<Shoes> _wishlist  = [
+    Shoes(
+        name: "Air Jordan 1",
+        colors: [Colors.black,Colors.red],
+        imageURL: "assets/images/nike6.png",
+        price: 400
+    ),
+  ];
   List<Shoes> get wishlist{
     return[..._wishlist];
   }

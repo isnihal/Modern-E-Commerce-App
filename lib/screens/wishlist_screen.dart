@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/shoes.dart';
 import '../widgets/cart_item.dart';
+import '../provider/shop_provider.dart';
 
 class WishListScreen extends StatelessWidget {
 
@@ -8,44 +10,8 @@ class WishListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var mediaQuery = MediaQuery.of(context);
-    List<Shoes> products = [
-      Shoes(
-          name: "Pegasus 30",
-          colors: [Colors.red[200],Colors.red],
-          imageURL: "assets/images/nike1.png",
-          price: 345
-      ),
-      Shoes(
-          name: "Air Force",
-          colors: [Colors.black,Colors.green],
-          imageURL: "assets/images/nike2.png",
-          price: 499
-      ),
-      Shoes(
-          name: "Air Zoom",
-          colors: [Colors.grey,Colors.black],
-          imageURL: "assets/images/nike3.png",
-          price: 300
-      ),
-      Shoes(
-          name: "Air Max",
-          colors: [Colors.white,Colors.red],
-          imageURL: "assets/images/nike4.png",
-          price: 345
-      ),
-      Shoes(
-          name: "Air Jordan Max",
-          colors: [Colors.white12,Colors.indigo],
-          imageURL: "assets/images/nike5.png",
-          price: 999
-      ),
-      Shoes(
-          name: "Air Jordan 1",
-          colors: [Colors.black,Colors.red],
-          imageURL: "assets/images/nike6.png",
-          price: 400
-      ),
-    ];
+    var provider = Provider.of<ShopProvider>(context);
+    List<Shoes> products = provider.wishlist;
 
 
     return Scaffold(
