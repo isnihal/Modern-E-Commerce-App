@@ -84,7 +84,7 @@ class ShopProvider with ChangeNotifier{
         name: "Ultraboost",
         colors: [Colors.pink[50],Colors.black],
         imageURL: "assets/images/adidas1.png",
-        price: 345
+        price: 645
     ),
     Shoes(
         name: "Adizero",
