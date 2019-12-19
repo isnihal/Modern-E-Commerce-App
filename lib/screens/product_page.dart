@@ -216,7 +216,7 @@ class _ProductPageState extends State<ProductPage> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
                               gradient: LinearGradient(
-                                colors: [Colors.red,Colors.red[200]],
+                                colors: [shoe.colors[0],shoe.colors[1]],
                                 begin: Alignment.topRight,
                                 end: Alignment.bottomLeft
                               ),
