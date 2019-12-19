@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: ScreenUtil().setHeight(60),
               ),
-              ProductBanner(products[5])
+              ProductBanner(products[products.length-1],products.length-1)
             ],
           ),
         ),
