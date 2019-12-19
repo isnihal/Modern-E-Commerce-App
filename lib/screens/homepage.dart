@@ -13,7 +13,7 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 import '../provider/shop_provider.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatefulWidget  {
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -58,6 +58,13 @@ class _HomePageState extends State<HomePage> {
       }
     }
     return _drawerButtons;
+  }
+  
+  @override
+  void initState() {
+    Future.delayed(Duration.zero,(){
+      Provider.of<ShopProvider>(context).setSelectedBrand(0);
+    });
   }
 
   @override
