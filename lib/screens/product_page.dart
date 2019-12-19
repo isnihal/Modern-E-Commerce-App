@@ -22,6 +22,7 @@ class _ProductPageState extends State<ProductPage> {
 
     var arguments = ModalRoute.of(context).settings.arguments as Map;
     Shoes shoe = arguments["shoe"];
+    int cardNum  = arguments["card_num"];
     var mediaQuery = MediaQuery.of(context);
     var provider = Provider.of<ShopProvider>(context);
     var sizes = ["7","8","9","10"];
@@ -50,7 +51,7 @@ class _ProductPageState extends State<ProductPage> {
                             width: 300,
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                    colors: [Colors.red[200], Colors.red],
+                                    colors: [shoe.colors[0], shoe.colors[1]],
                                     begin: Alignment.topRight,
                                     end: Alignment.bottomLeft
                                 )
@@ -60,7 +61,7 @@ class _ProductPageState extends State<ProductPage> {
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.all(8),
-                                  child: Text("01",style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),),
+                                  child: Text("0${cardNum+1}",style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),),
                                 ),
                               ],
                             ),
@@ -75,7 +76,7 @@ class _ProductPageState extends State<ProductPage> {
                     Container(
                       height: 510,
                       width: 540,
-                      child: Image.asset("assets/images/nike1.png",)
+                      child: Image.asset(shoe.imageURL)
                     )
                   ],
                 ),
@@ -96,7 +97,7 @@ class _ProductPageState extends State<ProductPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                              "Pegasus 30",
+                              shoe.name,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -179,11 +180,11 @@ class _ProductPageState extends State<ProductPage> {
                       height: 75,
                       child:  Center(
                         child: Text(
-                            "\$375",
+                            "\$${shoe.price}",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 42
+                                fontSize: 33
                             )
                         ),
                       ),

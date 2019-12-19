@@ -26,7 +26,7 @@ class ProductCard extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: (){
-                  Navigator.pushNamed(context, ProductPage.routeName,arguments: {"shoe":shoe});
+                  Navigator.pushNamed(context, ProductPage.routeName,arguments: {"shoe":shoe,"card_num":cardNum});
                 },
                 child: Container(
                   width: ScreenUtil().setWidth(620),
