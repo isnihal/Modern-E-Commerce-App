@@ -1,3 +1,4 @@
+import 'package:ecommerce_template/screens/contact_screen.dart';
 import 'package:ecommerce_template/utils/profile_clipper.dart';
 import 'package:ecommerce_template/widgets/brand_selector.dart';
 import 'package:ecommerce_template/widgets/product_banner.dart';
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
   int _currentSelectedDrawerButtonIndex = 0;
 
   List<Widget> _createDrawerButtons(){
-    List _drawerButtonTexts = ["Home","Cart","Contact","Wishlist","Profile"];
+    List _drawerButtonTexts = ["Home","Contact"];
     List<FlatButton> _drawerButtons = [];
     for(int i=0;i<_drawerButtonTexts.length;i++) {
       if (i == _currentSelectedDrawerButtonIndex) {
@@ -150,11 +151,14 @@ class _HomePageState extends State<HomePage> {
                           _toggle();
                         },
                       ),
-                      ClipOval(
-                        clipper: ProfileClipper(),
-                        child: Image.asset("assets/images/nihal.jpg",
-                          width: ScreenUtil().setWidth(160),
-                          height: ScreenUtil().setHeight(160),
+                      InkWell(
+                        onTap:  () => Navigator.of(context).pushNamed(ContactScreen.routeName),
+                        child: ClipOval(
+                          clipper: ProfileClipper(),
+                          child: Image.asset("assets/images/nihal.jpg",
+                            width: ScreenUtil().setWidth(160),
+                            height: ScreenUtil().setHeight(160),
+                          ),
                         ),
                       ),
                     ],

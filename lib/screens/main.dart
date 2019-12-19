@@ -1,3 +1,4 @@
+import 'package:ecommerce_template/screens/contact_screen.dart';
 import 'package:ecommerce_template/screens/main_page.dart';
 import 'package:ecommerce_template/screens/product_page.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         ProductPage.routeName: (ctx)=>ProductPage(),
+        ContactScreen.routeName: (ctx) =>ContactScreen(),
       },
       title: "Shop",
       home: MainPage(),

@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     SystemChrome.setEnabledSystemUIOverlays([]);
     _children = [
       WishListScreen(),
-      ContactScreen(),
+      HomePage(),
       CartScreen()
     ];
     super.initState();

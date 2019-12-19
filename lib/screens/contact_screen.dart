@@ -6,6 +6,9 @@ import 'package:shape_of_view/shape_of_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatelessWidget {
+
+  static const routeName =  "/contact_screen";
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
