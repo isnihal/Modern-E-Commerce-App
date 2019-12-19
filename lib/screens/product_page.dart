@@ -26,10 +26,12 @@ class _ProductPageState extends State<ProductPage> {
     var mediaQuery = MediaQuery.of(context);
     var provider = Provider.of<ShopProvider>(context);
     var sizes = ["7","8","9","10"];
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
 
     if(provider.isShoesInWishlist(shoe)) widget.isFavorite = true; else widget.isFavorite = false;
 
     return Scaffold(
+      key: _scaffoldKey,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -108,7 +110,7 @@ class _ProductPageState extends State<ProductPage> {
                             icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
                             onPressed: (){
                               if(!widget.isFavorite){
-                                if(!provider.wishlist.contains(shoe)) provider.addToWishList(shoe);
+                                provider.addToWishList(shoe);
                               }
                               else{
                                 provider.removeFromWishList(shoe);
@@ -198,7 +200,30 @@ class _ProductPageState extends State<ProductPage> {
                     Expanded(
                       child: InkWell(
                         onTap: (){
-                          if(!provider.isShoesInCart(shoe)) provider.addToCart(shoe);
+                          if(!provider.isShoesInCart(shoe)){
+                            provider.addToCart(shoe);
+                            _scaffoldKey.currentState.showSnackBar(SnackBar(
+                              content: Text("Item added to Cart"),
+                              action: SnackBarAction(
+                                label: "Remove Item",
+                                onPressed: (){
+                                  _scaffoldKey.currentState.removeCurrentSnackBar();
+                                  provider.removeFromCart(shoe);
+                                },
+                              ),
+                            ));
+                          }
+                          else{
+                            _scaffoldKey.currentState.showSnackBar(SnackBar(
+                              content: Text("Item already in Cart"),
+                              action: SnackBarAction(
+                                label: "Dismiss",
+                                onPressed: (){
+                                  _scaffoldKey.currentState.removeCurrentSnackBar();
+                                },
+                              ),
+                            ));
+                          }
                         },
                         child: Container(
                           height: 75,
