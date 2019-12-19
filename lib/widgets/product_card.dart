@@ -1,6 +1,8 @@
 import 'package:ecommerce_template/screens/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import '../provider/shop_provider.dart';
 
 import '../models/shoes.dart';
 
@@ -13,6 +15,9 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    var provider = Provider.of<ShopProvider>(context);
+    
     return Container(
       width: ScreenUtil().setWidth(642),
       child: Stack(
@@ -89,18 +94,21 @@ class ProductCard extends StatelessWidget {
                               SizedBox(
                                 height: ScreenUtil().setHeight(25),
                               ),
-                              Container(
-                                width: ScreenUtil().setWidth(75),
-                                height: ScreenUtil().setHeight(75),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8)
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.add,
-                                    size: 18,
-                                    color: shoe.colors[1],
+                              InkWell(
+                                onTap: () => provider.addToCart(shoe),
+                                child: Container(
+                                  width: ScreenUtil().setWidth(75),
+                                  height: ScreenUtil().setHeight(75),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8)
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 18,
+                                      color: shoe.colors[1],
+                                    ),
                                   ),
                                 ),
                               )
