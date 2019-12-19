@@ -81,4 +81,14 @@ class ShopProvider with ChangeNotifier{
   void removeFromWishList(Shoes shoe){
     _wishlist.remove(shoe);
   }
+
+  bool isShoesInWishlist(Shoes shoe){
+    for(int i=0;i<_wishlist.length;i++){
+      Shoes obj = _wishlist[i];
+      if(shoe.name == obj.name){
+        return true;
+      }
+    }
+    return false;
+  }
 }

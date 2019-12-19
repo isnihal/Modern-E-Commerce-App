@@ -7,7 +7,7 @@ import 'package:shape_of_view/shape_of_view.dart';
 class ProductPage extends StatefulWidget {
 
   static const routeName = "/product_page";
-  bool isFavorite = false;
+  bool isFavorite;
   int selectedSize = 0;
 
 
@@ -27,7 +27,7 @@ class _ProductPageState extends State<ProductPage> {
     var provider = Provider.of<ShopProvider>(context);
     var sizes = ["7","8","9","10"];
 
-    if(provider.wishlist.contains(shoe)) widget.isFavorite = true;
+    if(provider.isShoesInWishlist(shoe)) widget.isFavorite = true; else widget.isFavorite = false;
 
     return Scaffold(
       body: Container(
@@ -107,7 +107,13 @@ class _ProductPageState extends State<ProductPage> {
                           IconButton(
                             icon: widget.isFavorite? Icon(Icons.favorite):Icon(Icons.favorite_border,),
                             onPressed: (){
-                              provider.addToWishList(shoe);
+                              if(!widget.isFavorite){
+                                if(!provider.wishlist.contains(shoe)) provider.addToWishList(shoe);
+                              }
+                              else{
+                                provider.removeFromWishList(shoe);
+                              }
+
                               setState(() {
                                 widget.isFavorite=!widget.isFavorite;
                               });
