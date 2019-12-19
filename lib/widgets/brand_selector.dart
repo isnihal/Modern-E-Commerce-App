@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import '../provider/shop_provider.dart';
 
 class BrandSelector extends StatefulWidget {
 
@@ -16,7 +18,7 @@ class _BrandSelectorState extends State<BrandSelector> {
   int _currentIndex = 0;
   bool _isSelected;
 
-  List<Widget> _buildShoeBrands(){
+  List<Widget> _buildShoeBrands(provider){
     return widget.brands.map((brand){
       var index = widget.brands.indexOf(brand);
       _isSelected = _currentIndex == index;
@@ -29,12 +31,12 @@ class _BrandSelectorState extends State<BrandSelector> {
               color: _isSelected? Colors.black : Colors.grey,
               fontSize: _isSelected? 22 : 16,
               fontWeight: FontWeight.bold
-              //TODO:CHANGE FONT FAMILY
             ),
           ),
           onTap: (){
             setState(() {
               _currentIndex = index;
+              provider.setSelectedBrand(index);
             });
           },
         ),
@@ -44,8 +46,9 @@ class _BrandSelectorState extends State<BrandSelector> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ShopProvider>(context);
     return Row(
-      children: _buildShoeBrands()
+      children: _buildShoeBrands(provider)
     );
   }
 }

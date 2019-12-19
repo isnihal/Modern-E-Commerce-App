@@ -10,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../models/shoes.dart';
 
 import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:provider/provider.dart';
+import '../provider/shop_provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,45 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  List<Shoes> products = [
-    Shoes(
-        name: "Pegasus 30",
-        colors: [Colors.red[200],Colors.red],
-        imageURL: "assets/images/nike1.png",
-        price: 345
-    ),
-    Shoes(
-        name: "Air Force",
-        colors: [Colors.black,Colors.green],
-        imageURL: "assets/images/nike2.png",
-        price: 499
-    ),
-    Shoes(
-        name: "Air Zoom",
-        colors: [Colors.grey,Colors.black],
-        imageURL: "assets/images/nike3.png",
-        price: 300
-    ),
-    Shoes(
-        name: "Air Max",
-        colors: [Colors.white,Colors.red],
-        imageURL: "assets/images/nike4.png",
-        price: 345
-    ),
-    Shoes(
-        name: "Air Jordan Max",
-        colors: [Colors.white12,Colors.indigo],
-        imageURL: "assets/images/nike5.png",
-        price: 999
-    ),
-    Shoes(
-        name: "Air Jordan 1",
-        colors: [Colors.black,Colors.red],
-        imageURL: "assets/images/nike6.png",
-        price: 400
-    ),
-  ];
 
   //  Current State of InnerDrawerState
   final GlobalKey<InnerDrawerState> _innerDrawerKey = GlobalKey<InnerDrawerState>();
@@ -114,6 +77,10 @@ class _HomePageState extends State<HomePage> {
         allowFontScaling: true
     )
       ..init(context);
+
+    var provider = Provider.of<ShopProvider>(context);
+    List<Shoes> products = provider.products;
+
     return InnerDrawer(
       key: _innerDrawerKey,
       boxShadow: [BoxShadow(color: Colors.transparent)],
@@ -183,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               BrandSelector(
-                  brands: ["Nike", "Adidas", "Puma", "Asics"]
+                  brands: ["Nike", "Adidas", "NB", "Skechers"]
               ),
               SizedBox(
                 height: ScreenUtil().setHeight(50),
