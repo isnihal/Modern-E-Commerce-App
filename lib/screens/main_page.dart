@@ -1,5 +1,6 @@
 import 'package:ecommerce_template/screens/cart_screen.dart';
 import 'package:ecommerce_template/screens/contact_screen.dart';
+import 'package:ecommerce_template/screens/profile.dart';
 import 'package:ecommerce_template/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +19,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   List<Widget> _children;
 
   final bottomBarModels = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(icon: Icon(Icons.favorite,),),
+    BottomNavigationBarItem(icon: Icon(Icons.person,),),
     BottomNavigationBarItem(icon: Icon(Icons.home),),
     BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,),)
   ];
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
     _children = [
-      WishListScreen(),
+      ContactScreen(),
       HomePage(),
       CartScreen()
     ];

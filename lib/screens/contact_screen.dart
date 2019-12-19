@@ -9,10 +9,6 @@ class ContactScreen extends StatelessWidget {
 
   static const routeName =  "/contact_screen";
 
-  final Function drawerFunction;
-
-  ContactScreen(this.drawerFunction);
-
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -40,10 +36,6 @@ class ContactScreen extends StatelessWidget {
                               child: Image.asset(
                                 "assets/images/mac.jpg", fit: BoxFit.fill,
                               )
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: IconButton(icon: Icon(Icons.menu),color: Colors.white70,onPressed: drawerFunction,),
                           ),
                         ],
                       ),

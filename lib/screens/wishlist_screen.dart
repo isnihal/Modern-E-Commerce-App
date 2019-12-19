@@ -6,6 +6,10 @@ import '../provider/shop_provider.dart';
 
 class WishListScreen extends StatelessWidget {
 
+  final Function _drawerFunction;
+
+  WishListScreen(this._drawerFunction);
+
   @override
   Widget build(BuildContext context) {
 
@@ -18,23 +22,31 @@ class WishListScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Stack(
-              children: <Widget>[
+          Stack(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: IconButton(icon: Icon(Icons.menu),onPressed:_drawerFunction,),
+              ),
+              Container(
+                width: double.infinity,
+                child: Stack(
+                  children: <Widget>[
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 8),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child:Text("Wishlist",style:TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28
-                    ) ,),),
-                )
-              ],
-            ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 8),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child:Text("Wishlist",style:TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28
+                        ) ,),),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
           Expanded(
                       child: GridView.builder(

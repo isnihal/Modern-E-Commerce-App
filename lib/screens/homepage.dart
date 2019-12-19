@@ -1,4 +1,5 @@
 import 'package:ecommerce_template/screens/contact_screen.dart';
+import 'package:ecommerce_template/screens/wishlist_screen.dart';
 import 'package:ecommerce_template/utils/profile_clipper.dart';
 import 'package:ecommerce_template/widgets/brand_selector.dart';
 import 'package:ecommerce_template/widgets/product_banner.dart';
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage> {
   int _currentSelectedDrawerButtonIndex = 0;
 
   List<Widget> _createDrawerButtons(){
-    List _drawerButtonTexts = ["Home","Contact"];
+    List _drawerButtonTexts = ["Home","Wishlist"];
     List<FlatButton> _drawerButtons = [];
     for(int i=0;i<_drawerButtonTexts.length;i++) {
       if (i == _currentSelectedDrawerButtonIndex) {
@@ -133,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           children: _createDrawerButtons()
       ),
       scaffold: _currentSelectedDrawerButtonIndex == 1
-          ? ContactScreen(_toggle)
+          ? WishListScreen(_toggle)
           : Scaffold(
         backgroundColor: Theme
             .of(context)
