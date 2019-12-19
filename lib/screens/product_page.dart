@@ -76,7 +76,7 @@ class _ProductPageState extends State<ProductPage> {
                     Container(
                       height: 510,
                       width: 540,
-                      child: Image.asset(shoe.imageURL)
+                      child: Hero(tag:shoe.name,child: Image.asset(shoe.imageURL))
                     )
                   ],
                 ),

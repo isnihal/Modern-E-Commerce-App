@@ -80,10 +80,13 @@ class ProductBanner extends StatelessWidget {
             Positioned(
               top: ScreenUtil().setHeight(-85),
               right: ScreenUtil().setWidth(30),
-              child: Image.asset(
-                shoe.imageURL,
-                width: ScreenUtil().setWidth(610),
-                height: ScreenUtil().setHeight(550),
+              child: Hero(
+                tag: shoe.name,
+                child: Image.asset(
+                  shoe.imageURL,
+                  width: ScreenUtil().setWidth(610),
+                  height: ScreenUtil().setHeight(550),
+                ),
               ),
             )
           ],
