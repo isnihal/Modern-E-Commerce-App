@@ -64,6 +64,18 @@ flutter:
     - assets/images/nike4.png
     - assets/images/nike5.png
     - assets/images/nike6.png
+    - assets/images/adidas1.png
+    - assets/images/adidas2.png
+    - assets/images/adidas3.png
+    - assets/images/adidas4.png
+    - assets/images/adidas5.png
+    - assets/images/adidas6.png
+    - assets/images/nb1.png
+    - assets/images/nb2.png
+    - assets/images/nb3.png
+    - assets/images/skechers1.png
+    - assets/images/skechers2.png
+    - assets/images/skechers3.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
